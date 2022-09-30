@@ -1,0 +1,59 @@
+* {
+    margin: 0; padding: 0;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    background: rgb(38, 23, 23);
+    flex-direction: column;
+}
+header {
+    width: 1000px;
+    flex-direction: row;
+}
+
+.start {
+    width: 200px;
+    height: 40px;
+    background-color: #E67E22;
+    margin: 1rem;
+    box-shadow: 0 0 40px 5px rgb(255, 0, 0), 0 0 55px 5px yellow;
+    cursor: pointer;
+    color: yellow;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: linear 200ms;
+}
+
+.start:hover {
+    background-color: yellow;
+    border-radius: 50px;
+    color: #E67E22;
+    transition: linear 200ms;
+}
+
+.result {
+    width: 200px;
+    height: 40px;
+    background-color: #E67E22;
+    margin: 1rem;
+    box-shadow: 0 0 40px 5px rgb(255, 0, 0), 0 0 55px 5px yellow;
+    cursor: pointer;
+    color: yellow;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: linear 200ms;
+}
+
+
+canvas {
+    box-shadow: 0 0 40px 5px rgb(255, 0, 0), 0 0 55px 5px yellow;
+    border-radius: 10px;
+}

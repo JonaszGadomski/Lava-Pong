@@ -5,30 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Pong</title>
+    <title>Lava Pong</title>
 
-<style>
-    * {
-        margin: 0; padding: 0;
-    }
-
-    body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background: rgb(38, 23, 23);
-    }
-    canvas {
-        box-shadow: 0 0 40px 5px rgb(255, 0, 0), 0 0 55px 5px yellow;
-        border-radius: 10px;
-    }
-</style>
 </head>
-<body>
+<body class="center">
+    <header class="center">
+        <div class="result center" id="result"><span class="resultLeft" id="resultLeft"></span></div>
+        <div class="start center" id="start">START</div>
+        <div class="result center" id="result"><span class="resultRight" id="resultRight"></span></div>
+    </header>
 
-    <div class="result" id="result"></div>
-    <canvas></canvas>
-    <script src="script.js"></script>
+    <div class="center">
+        <canvas></canvas>
+    </div>
+
+
 </body>
+<script src="script.js"></script>
 </html>
