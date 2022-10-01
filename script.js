@@ -4,6 +4,9 @@ const start = document.getElementById('start');
 const resultLeft = document.getElementById('resultLeft');
 const resultRight = document.getElementById('resultRight');
 
+let rightGetPoint = 0
+let leftGetPoint = 0
+
 
 
 can.height = 500;
@@ -18,9 +21,9 @@ let ballY = ch/2-bs/2;
 const rh = 100;
 const rw = 20;
 const rlX = rw; //x start position of the left rocket
-var rlY = 200;               //ch/2-rh/2; //y start position of the left rocket
+var rlY = 200; //ch/2-rh/2; //y start position of the left rocket
 const rrX = cw-2*rw;
-const rrY = ch/2-rh/2;
+var rrY = ch/2-rh/2;
 
 const lineWidth = 6;
 const lineHeight = 16;
@@ -55,19 +58,36 @@ function ball() {
     }
     //ball out
     if (ballX < 0) {
+
         ballX = cw/2-bs/2;
         ballY = ch/2-bs/2;
+        rightGetPoint++
+        resultRight.innerHTML = rightGetPoint
     }
     if (ballX > cw) {
         ballX = cw/2-bs/2;
         ballY = ch/2-bs/2;
+        leftGetPoint++
+        resultLeft.innerHTML = leftGetPoint
     }
     //rocket bumping
+    if (ballX <= rlX+20 && ballX > rlX+18 && rlY-19 <= ballY  && ballY <= rlY+99) {
+        ballSpeedX = -ballSpeedX
+    }
+    if (ballX+20 >= rrX && ballX+18 < rrX && rrY-19 <= ballY  && ballY <= rrY+99) {
+        ballSpeedX = -ballSpeedX
+    }
 }
 
 function rocketLeft() {
     ctx.fillStyle = '#3498DB';
     ctx.fillRect(rlX, rlY, rw, rh);
+    if (rlY <= 0) {
+        rlY = 0;
+    }
+    if (rlY >= ch-100) {
+        rlY = ch-100
+    }
 }
 
 function rocketRight() {
