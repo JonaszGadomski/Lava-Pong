@@ -3,11 +3,52 @@ const ctx = can.getContext('2d');
 const start = document.getElementById('start');
 const resultLeft = document.getElementById('resultLeft');
 const resultRight = document.getElementById('resultRight');
+const settings = document.getElementById('settings');
+
+const settingsPageDiv = document.getElementById('settingsPageDiv');
+
+const rangeLeft = document.getElementById('rangeLeft');
+const rangeRight = document.getElementById('rangeRight');
+
+const leftColorSample = document.getElementById('leftColorSample');
+const rightColorSample = document.getElementById('rightColorSample');
+
+const leftColorValue = rangeLeft.value;
+const rightColorValue = rangeRight.value;
+
+const ok = document.getElementById('ok');
+
+
+settings.addEventListener('click', () => {
+    settingsPageDiv.classList.remove('notVisible')
+})
+
+
+rangeLeft.oninput = function() {
+    leftColorSample.style.backgroundColor = "hsl("+this.value+", 100%, 50%)";
+    leftColorSample.innerHTML = this.value;
+}
+
+rangeRight.oninput = function() {
+    rightColorSample.style.backgroundColor = "hsl("+this.value+", 100%, 36%)";
+    rightColorSample.innerHTML = this.value;
+}
+
+
+function saveSettings() {
+    rocketLeftColor = leftColorSample.style.backgroundColor;
+    rocketRightColor = rightColorSample.style.backgroundColor;
+    game();
+    settingsPageDiv.classList.add('notVisible');
+}
+
+ok.addEventListener('click', saveSettings);
 
 let rightGetPoint = 0
 let leftGetPoint = 0
 
-
+var rocketLeftColor = '#3498DB';
+var rocketRightColor = '#E67E22';
 
 can.height = 500;
 can.width = 1000;
@@ -80,7 +121,7 @@ function ball() {
 }
 
 function rocketLeft() {
-    ctx.fillStyle = '#3498DB';
+    ctx.fillStyle = rocketLeftColor;
     ctx.fillRect(rlX, rlY, rw, rh);
     if (rlY <= 0) {
         rlY = 0;
@@ -91,7 +132,7 @@ function rocketLeft() {
 }
 
 function rocketRight() {
-    ctx.fillStyle = '#E67E22';
+    ctx.fillStyle = rocketRightColor;
     ctx.fillRect(rrX, rrY, rw, rh);
 }
 
@@ -102,12 +143,46 @@ function leftPosition(e) {
     rlY = (e.clientY - topCanvas)
 }
 
-
-function game() {
-table()
-ball()
-rocketLeft()
-rocketRight()
+function move(e) {
+    switch(e.keyCode) {
+        case 87:
+            rrY = rrY-30
+        break;
+        case 83:
+            rrY = rrY+30
+        break
+    }
 }
 
-setInterval(game, 10)
+window.addEventListener('keydown', move);
+
+function game() {
+    table()
+    ball()
+    rocketLeft()
+    rocketRight()
+}
+
+var run = ""
+function playGame() {
+    run = setInterval(game, 10);
+    start.innerHTML = 'PAUSE';
+} 
+
+function stopGame() {
+    game()
+    clearInterval(run)
+    start.innerHTML = 'START';
+}
+
+start.addEventListener('click', () => {
+    if (start.innerHTML == 'START') {
+        playGame()
+    }
+    else {
+        stopGame()
+    }
+})
+
+window.onload(stopGame())
+

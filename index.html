@@ -5,21 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <title>Lava Pong</title>
 
 </head>
 <body class="center">
+    <div class="settings center" id="settings"><i class="fa-solid fa-gear"></i></div>
     <header class="center">
         <div class="result center" id="result"><span class="resultLeft" id="resultLeft">0</span></div>
         <div class="start center" id="start">START</div>
         <div class="result center" id="result"><span class="resultRight" id="resultRight">0</span></div>
     </header>
+    <div class="settingsPage center" id="settingsPageDiv">
+        <span class="center settingsTitle">Settings</span>
+        <div class="container center">
+            <div class="rangeSection center">
+                <span>Left Player Color</span>
+                <input type="range" min="0" max="359" class="range rangeLeft" id="rangeLeft">
+            </div>
+            <div class="colorDivContainer center">
+                <div class="colorDiv colorDivLeft" id="leftColorSample"></div>
+            </div>
+        </div>    
+
+        <div class="container center">
+            <div class="rangeSection center">
+                <span>Right Player Color</span>
+                <input type="range" min="01" max="359" class="range rangeRight" id="rangeRight">
+            </div>
+            <div class="colorDivContainer center">
+                <div class="colorDiv colorDivRight" id="rightColorSample"></div>
+            </div> 
+        </div>
+        <div class="ok center" id="ok">&#10004;</div>
+
+    </div>
 
     <div class="center">
         <canvas></canvas>
     </div>
 
 
-</body>
+</body>    
+<script src="https://kit.fontawesome.com/d44f2140b3.js" crossorigin="anonymous"></script>
 <script src="script.js"></script>
 </html>

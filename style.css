@@ -11,6 +11,7 @@
 body {
     background: rgb(38, 23, 23);
     flex-direction: column;
+    position: relative;
 }
 header {
     width: 1000px;
@@ -34,7 +35,7 @@ header {
 .start:hover {
     background-color: yellow;
     border-radius: 50px;
-    color: #E67E22;
+    color: rgb(90, 46, 14);
     transition: linear 200ms;
 }
 
@@ -52,8 +53,123 @@ header {
     transition: linear 200ms;
 }
 
-
 canvas {
     box-shadow: 0 0 40px 5px rgb(255, 0, 0), 0 0 55px 5px yellow;
     border-radius: 10px;
+}
+
+.settings {
+    position: absolute;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    top: 0;
+    right: 0;
+    background-color:  #E67E22;
+    color: yellow;
+    border-radius: 10px;
+    margin: 1rem 2rem;
+    cursor: pointer;
+    transition: 200ms linear;
+}
+
+.settings:hover {
+    background-color: yellow;
+    border-radius: 50px;
+    color: rgb(90, 46, 14);
+    rotate: 45deg;
+    transition: linear 200ms;
+}
+
+.settingsPage {
+    position: absolute;
+    top: 1rem;
+    width: 400px;
+    height: 600px;
+    z-index: 1;
+    background-color: saddlebrown;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: dotted cornsilk 4px;
+    
+}
+
+.rangeSection {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.colorDiv {
+    width: 50%;
+    width: 100px;
+    height: 100px;
+    border: double cornsilk 4px;
+
+}
+
+.colorDivLeft {
+    background-color: #3498DB;
+}
+
+.colorDivRight {
+    background-color: #E67E22;
+}
+
+
+.container {
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.settingsTitle {
+    font-size: 2.5rem;
+    color: cornsilk;
+}
+
+.range {
+    margin-top: 1rem;
+    width: 80%;
+    background-color: rgb(252, 243, 112);
+    -webkit-appearance: none;
+    border-radius: 10px;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 30px;
+    border: 4px rgb(51, 25, 10) solid;
+    border-radius: 15%;
+    background-color: rgb(255, 213, 0);
+}
+
+.ok {
+    width: 50px;
+    height: 50px;
+    border: solid cornsilk 3px;
+    border-radius: 10px;
+    font-size: 3rem;
+    color: rgb(96, 192, 0);
+    margin-top: 3rem;
+    cursor: pointer;
+    background-color: yellow;
+    transition: ease-in-out 100ms;
+}
+
+.ok:hover {
+    background-color: gold;
+    scale: 1.2;
+    transition: ease-in-out 100ms;
+}
+
+.ok:active {
+    background-color: goldenrod;
+}
+
+.notVisible {
+    display: none;
 }
